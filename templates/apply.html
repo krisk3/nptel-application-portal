@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+
+<body>
+    <div class="form-body without-side">
+        <div class="iofrm-layout">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items overflow-hidden" style="max-width: 500px;">
+                        <div class="item-container bg-accent custom-borders">
+                            <h3 class="font-md">Application Form</h3>
+                            <p style="padding-top: 10px;">Apply for NPTEL Online Course</p>
+                        </div>
+                        <div class="item-container">
+                            <form method="POST" enctype="multipart/form-data">
+                                {{ form.hidden_tag() }}
+
+                                <div class="page-links pt-3"
+                                    style="padding-bottom:1rem!important; padding-top:0rem!important">
+                                    <b>Personal Details</b>
+                                </div>
+
+                                {{ form.first_name(class="form-control", placeholder="First Name") }}
+
+                                {{ form.last_name(class="form-control", placeholder="Last Name") }}
+
+                                {{ form.dob(class="form-control", placeholder="Date of Birth") }}
+                                {{ form.email(class="form-control", placeholder="E-mail Address") }}
+                                {{ form.phone(class="form-control", placeholder="Phone Number") }}
+
+                                <div class="page-links pt-3"
+                                    style="padding-bottom:1rem!important; padding-top:0rem!important">
+                                    <b>Academic Details</b>
+                                </div>
+
+
+                                {{ form.degree(class="form-control", placeholder="Degree") }}
+                                {{ form.field_of_study(class="form-control", placeholder="Field of Study") }}
+                                {{ form.institution(class="form-control", placeholder="Institution") }}
+                                {{ form.cgpa(class="form-control", placeholder="CGPA") }}
+
+                                <div class="page-links pt-3"
+                                    style="padding-bottom:1rem!important; padding-top:0rem!important">
+                                    <b>File Upload</b>
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.transcript.label(class="form-label") }}
+                                    {{ form.transcript(class="form-control") }}
+                                </div>
+
+                                <div class="form-group">
+                                    {{ form.id_proof.label(class="form-label") }}
+                                    {{ form.id_proof(class="form-control") }}
+                                </div>
+
+                                <div class="form-button d-flex justify-content-center">
+                                    {{ form.submit(class="ibtn", style="text-align: center;") }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

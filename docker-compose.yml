@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: nptel_flask_app
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/flask_db
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    container_name: nptel_postgres_db
+    image: postgres:17.4-alpine3.21
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=flask_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
